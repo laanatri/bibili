@@ -1,0 +1,58 @@
+.form-inputs {
+  position: relative;
+}
+
+.password label, .email label {
+  font-weight: 500;
+  width: 100%;
+  text-align: left;
+  margin-bottom: 5px;
+}
+
+.password.optional input, .user_password_confirmation input, .email input {
+  background-color: rgb(236, 253, 245);
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 5px;
+}
+
+.password.required input{
+  background-color: rgb(236, 253, 245);
+  width: 100%;
+  padding: 5px;
+}
+
+.field_with_hint{
+  margin-bottom: 20px;
+  span {
+    font-size: 0.8em;
+  }
+}
+
+.password input:focus, .email input:focus {
+  outline: 2px solid #831843;
+  color: #831843;
+  
+}
+
+.eye-sign-in {
+  position: absolute;
+  right: 5px;
+  bottom: 30px;
+}
+
+.eye-sign-up-first {
+  position: absolute;
+  right: 5px;
+  bottom: 133px;
+}
+
+.eye-sign-up-second {
+  position: absolute;
+  right: 5px;
+  bottom: 30px;
+}
+
+.btn {
+  font-weight: 500;
+}
