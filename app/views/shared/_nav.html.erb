@@ -1,27 +1,33 @@
-<nav class="shadow-md">
-  <div class="container flex max-w-screen-xl m-auto justify-between">
+<nav class="shadow-md bg-green-50 text-pink-900 fixed w-screen">
+  <div class="container flex max-w-screen-xl m-auto justify-between px-5 items-center">
+    
     <div class="logo-content">
       <%= link_to root_path do %>
-        <p class="logo logo-up" href="#">Bibili</p>
+        <p class="logo logo-up leading-10 py-1 mt-2" href="#">Bibili</p>
       <% end %>
     </div>
+
     <div class="search">
-    
-    </div>
-    <div class="sign flex">
-      <div class="btn">
-        <div class="sign-in">
-          <p>S'identifier</p>
-        </div>
-      </div>
-      <div class="btn">
-        <div class="sign-up">
-          <p>S'inscrire</p>
-        </div>
-      </div>
-    </div>
-  </div>
   
+    </div>
 
+    <div class="sign flex items-center h-full">
 
+      <div class="nav-profil flex items-center">
+        <i class="far fa-user-circle mr-2.5"></i>
+      </div>
+      <div class="sign-in mr-2.5 px-2.5 hover:bg-green-200 flex items-center">
+        <%= link_to user_session_path, :class=> "font-medium" do%>
+          <p>Se connecter</p>
+        <% end %>
+      </div>
+      <div class="sign-up px-2.5 hover:bg-green-200 flex items-center">
+        <%= link_to new_user_registration_path, :class=> "font-medium" do %>
+          <p>S'inscrire</p>
+        <% end %>
+      </div>
+
+    </div>
+
+  </div>
 </nav>
