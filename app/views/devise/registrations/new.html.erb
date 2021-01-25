@@ -9,10 +9,17 @@
   <%= f.error_notification %>
 
   <div class="form-inputs text-center">
+    <%= f.input :username,
+                required: true,
+                label: "Nom d'utilisateur",
+                placeholder: 'JohnDoe',
+                input_html: { autocomplete: "username" }%>
+
+
     <%= f.input :email,
                 required: true,
                 label: "Email",
-                placeholder: 'nom@gmail.com',
+                placeholder: 'john_doe@mail.com',
                 input_html: { autocomplete: "email" }%>
 
 

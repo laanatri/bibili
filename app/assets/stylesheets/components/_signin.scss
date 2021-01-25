@@ -2,14 +2,14 @@
   position: relative;
 }
 
-.password label, .email label {
+.user_username label, .password label, .email label {
   font-weight: 500;
   width: 100%;
   text-align: left;
   margin-bottom: 5px;
 }
 
-.password.optional input, .user_password_confirmation input, .email input {
+.user_username input, .password.optional input, .user_password_confirmation input, .email input {
   background-color: rgb(236, 253, 245);
   width: 100%;
   margin-bottom: 20px;
@@ -29,7 +29,7 @@
   }
 }
 
-.password input:focus, .email input:focus {
+.user_username input:focus, .password input:focus, .email input:focus {
   outline: 2px solid #831843;
   color: #831843;
 }
