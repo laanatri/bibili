@@ -1,4 +1,4 @@
 class Reading < ApplicationRecord
-  belongs_to :user
-  belongs_to :book
+  has_one :book, foreign_key: "book_id"
+  belongs_to :user, foreign_key: "user_id"
 end

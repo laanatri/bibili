@@ -10,12 +10,49 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_11_134319) do
+ActiveRecord::Schema.define(version: 2021_01_25_134041) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "book_lists", force: :cascade do |t|
+    t.bigint "book_id"
+    t.bigint "list_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["book_id"], name: "index_book_lists_on_book_id"
+    t.index ["list_id"], name: "index_book_lists_on_list_id"
+  end
+
+  create_table "books", force: :cascade do |t|
+    t.string "book_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "lists", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_lists_on_user_id"
+  end
+
+  create_table "readings", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "book_id"
+    t.string "reading_state"
+    t.integer "reading_percentage"
+    t.integer "reading_rate"
+    t.string "reading_comment"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["book_id"], name: "index_readings_on_book_id"
+    t.index ["user_id"], name: "index_readings_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
+    t.string "username", default: "", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
