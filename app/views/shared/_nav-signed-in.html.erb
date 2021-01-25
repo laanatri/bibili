@@ -1,0 +1,33 @@
+<nav class="shadow-md bg-green-50 text-pink-900 fixed w-screen">
+  <div class="container flex max-w-screen-xl m-auto justify-between px-5 items-center">
+    
+    <div class="logo-content">
+      <%= link_to root_path do %>
+        <p class="logo logo-up leading-10 py-1 mt-2" href="#">Bibili</p>
+      <% end %>
+    </div>
+
+    <div class="search w-1/3 shadow-inner">
+      <form class="searchbar bg-white flex items-center w-full">
+        <i class="fas fa-search"></i>
+        <input id="keyword" name="Search" type="text" class="form-control py-1 pr-2 pl-10 w-full" placeholder="Titre, auteur, isbn...">
+        <input type="submit" value="Search" style="visibility: hidden;" tabindex="-1" />
+      </form>
+  
+    </div>
+
+    <div class="sign flex items-center h-full">
+
+      <div class="nav-profil flex items-center">
+        <i class="far fa-user-circle mr-2.5"></i>
+      </div>
+      <div class="sign-up px-2.5 hover:bg-green-200 flex items-center">
+        <%= link_to destroy_user_session_path, :method => :delete, :class=> "font-medium" do %>
+          <p>Se déconnecter</p>
+        <% end %>
+      </div>
+
+    </div>
+
+  </div>
+</nav>
