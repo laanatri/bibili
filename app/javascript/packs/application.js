@@ -10,14 +10,14 @@ require("channels")
 import { passwordShow } from "../components/password_show.js"
 import { passwordShowRegis } from "../components/password_regis_show.js"
 import { passwordShowRegisConf } from "../components/password_regis_show.js"
-
+import { search } from "../components/searchbar.js"
 
 
 document.addEventListener('turbolinks:load', () => {
 passwordShow();
 passwordShowRegis();
 passwordShowRegisConf();
-
+search();
 
 });
 // Uncomment to copy all static images under ../images to the output folder and reference
