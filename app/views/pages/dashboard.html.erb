@@ -1,0 +1,10 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<%= form_for(:user, url: username_edit_path(@user), method: "patch") do |form|%>
+  <%= form.text_field :username %>
+  <%= form.submit "Update" %>
+<% end %>

@@ -1,5 +1,5 @@
 class ReadingsController < ActionController::Base
-  before_acion :authenticate_user!
+  before_action :authenticate_user!
 
   def index
   end
