@@ -1,6 +1,17 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
+
+  def create_default_lists
+    @user = current_user
+    List.create(user: @user, name: "Wishlist")
+    List.create(user: @user, name: "Bibliothèque")
+  end
+
+  def create
+    super
+    create_default_lists()
+  end
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
