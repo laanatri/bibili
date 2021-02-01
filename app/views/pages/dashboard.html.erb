@@ -4,6 +4,9 @@
 <br>
 <br>
 <br>
+<% flash.each do |type, msg| %>
+    <p><%= msg %></p>
+<% end %>
 <%= form_for(:user, url: username_edit_path(@user), method: "patch") do |form|%>
   <%= form.text_field :username %>
   <%= form.submit "Update" %>
