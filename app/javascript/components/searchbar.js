@@ -19,7 +19,12 @@ const displaySearchResults = (value) => {
 const fetchPreview = async (value) => {
   const response = await fetch(`https://www.decitre.fr/rechercher/result?q=${value}`)
   const text = await response.text();
-  console.log(text)
+  const page = document.createElement("html")
+  page.innerHTML = text
+  const titles = page.querySelectorAll(".product-title")
+  titles.forEach(title => {
+    console.log(title.innerHTML)
+  })
 };
 
 export { search };
