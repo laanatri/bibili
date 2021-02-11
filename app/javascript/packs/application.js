@@ -12,6 +12,7 @@ import { passwordShowRegis } from "../components/password_regis_show.js"
 import { passwordShowRegisConf } from "../components/password_regis_show.js"
 import { search } from "../components/searchbar.js"
 import { displaySearchResults } from "../components/search_results.js"
+import { displayBookInfo } from "../components/book_info.js"
 
 
 document.addEventListener('turbolinks:load', () => {
@@ -20,6 +21,7 @@ passwordShowRegis();
 passwordShowRegisConf();
 search();
 displaySearchResults();
+displayBookInfo();
 
 });
 // Uncomment to copy all static images under ../images to the output folder and reference

@@ -13,7 +13,7 @@ const search = () => {
 
 
 const displaySearchResults = (value) => {
-  window.location.href = `http://localhost:3000/books/search/${value}`
+  window.location.href = `http://localhost:3000/search/${value}`
 };
 
 const fetchPreview = async (value) => {
