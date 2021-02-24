@@ -1,22 +1,35 @@
 const displaySearchResults = () => {
   if (window.location.pathname.includes("/search/")) {
-    const query = window.location.pathname.substring(8,)
     const titlesFilter = document.querySelector(".titles-filter")
     const authorsFilter = document.querySelector(".authors-filter")
+    fetchAndDisplayTitles(window.location.search.substring(7,))
+    titlesFilter.disabled = true
+    authorsFilter.disabled = false
+
     titlesFilter.addEventListener("click", function() {
       titlesFilter.disabled = true
       authorsFilter.disabled = false
-      fetchAndDisplayTitles(query)
+      if (window.location.search.includes("books")){
+        fetchAndDisplayTitles(window.location.search.substring(7,))
+      } else {
+        fetchAndDisplayTitles(window.location.search.substring(9,))
+      }
     })
+
     authorsFilter.addEventListener("click", function() {
       authorsFilter.disabled = true
       titlesFilter.disabled = false
-      fetchAndDisplayAuthors(query)
+      if (window.location.search.includes("books")){
+        fetchAndDisplayAuthors(window.location.search.substring(7,))
+      } else {
+        fetchAndDisplayAuthors(window.location.search.substring(9,))
+      }
     })
   }
 };
 
 const fetchAndDisplayTitles = async (query) => {
+  window.history.pushState("", "Bibili", `/search/?books=${query}`);
   const fetchedContent = document.querySelector(".fetched-content")
   fetchedContent.innerHTML = ""
   const response = await fetch(`https://www.decitre.fr/rechercher/result?q=${query}`)
@@ -28,12 +41,13 @@ const fetchAndDisplayTitles = async (query) => {
     const id = title.href
     const item = document.createElement("a")
     item.href = `http://localhost:3000/books/${btoa(id)}`
-    item.innerText = title.innerHTML
+    item.innerText = title.innerHTML.replace("<br>", " ")
     fetchedContent.insertAdjacentElement("beforeend", item)
   })
 };
 
 const fetchAndDisplayAuthors = async (query) => {
+  window.history.pushState("", "Bibili", `/search/?authors=${query}`);
   const fetchedContent = document.querySelector(".fetched-content")
   fetchedContent.innerHTML = ""
   const response = await fetch(`https://www.decitre.fr/rechercher/result?q=${query}&search_field=author_name`)

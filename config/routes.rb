@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations' }
   root to: 'pages#home'
   get "dashboard", to: "pages#dashboard"
-  get "search/:query", to: 'pages#search'
+  get "search", to: 'pages#search'
   get "books/:id", to: 'pages#books'
   get "lists", to: "lists#index"
   get "lists/new", to: "lists#new", as: "new_list"
